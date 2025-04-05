@@ -1,21 +1,14 @@
-/* General styles */
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
   }
-  
-  /* Hero Section */
   .hero {
-    background: url('../assets/images/hero.jpg') no-repeat center center;
-    background-size: cover;
+    background: url('../assets/images/product1.jpg') center/cover no-repeat;
+    color: white;
     padding: 100px 0;
-    color: #fff;
-    text-shadow: 1px 1px 2px #000;
   }
-  
-  /* Footer */
-  footer {
-    background: #f8f9fa;
+  .hero h1 {
+    font-size: 3rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
   }
-  
-  /* Additional custom styles can be added here */
   
