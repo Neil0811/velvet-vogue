@@ -1,0 +1,21 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: url('../assets/images/hero.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 0;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  /* Footer */
+  footer {
+    background: #f8f9fa;
+  }
+  
+  /* Additional custom styles can be added here */
+  

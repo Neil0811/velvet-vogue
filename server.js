@@ -1,18 +1,36 @@
 const express = require('express');
 const { Pool } = require('pg');
 const path = require('path');
+const helmet = require('helmet');
 const app = express();
-
-// Use the port Render provides (don't let dotenv override it)
 const PORT = process.env.PORT || 3000;
 
-// Load environment variables from .env *after* accessing PORT
-require('dotenv').config();
+// Enable Content Security Policy (CSP) headers with updated sources
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"], // Default source is self
+    scriptSrc: [
+      "'self'", // Allow scripts from the same origin
+      "'unsafe-inline'", // Allow inline scripts (if absolutely necessary)
+      "'unsafe-eval'", // Allow eval() if absolutely necessary
+      "https://code.jquery.com", // Allow jQuery CDN
+      "https://cdn.jsdelivr.net", // Allow jsDelivr CDN for Popper.js
+      "https://stackpath.bootstrapcdn.com" // Allow Bootstrap CDN
+    ],
+    styleSrc: [
+      "'self'", 
+      "https://stackpath.bootstrapcdn.com", 
+      "https://maxcdn.bootstrapcdn.com"
+    ],
+    imgSrc: ["'self'", "data:", "https://velvet-vogue-1.onrender.com"],
+    connectSrc: ["'self'"],
+    fontSrc: ["'self'", "https://fonts.gstatic.com"],
+    objectSrc: ["'none'"],
+    upgradeInsecureRequests: [],
+  }
+}));
 
-console.log('🔍 Render PORT environment:', PORT);
-
-
-// PostgreSQL connection using the DATABASE_URL from your .env file
+// Set up PostgreSQL connection pool.
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },
@@ -20,35 +38,24 @@ const pool = new Pool({
 
 // Middleware to serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json());
 
-app.get('/ping', (req, res) => {
-    res.send('pong');
-  });
-  
-
-// Sample API endpoint to get all products
+// Sample API endpoint: Get all products from the database
 app.get('/api/products', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM products');
     res.json(result.rows);
   } catch (err) {
-    console.error('Error querying database:', err);
+    console.error(err);
     res.status(500).json({ error: 'Database query failed' });
   }
 });
 
-// Route for the home page (important for Render)
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
-});
-
-// Fallback route for other frontend routes (e.g., SPA behavior)
+// Fallback route to serve index.html for unmatched routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
