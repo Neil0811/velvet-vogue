@@ -1,11 +1,15 @@
-// Load environment variables from .env file
-require('dotenv').config();
-
 const express = require('express');
 const { Pool } = require('pg');
 const path = require('path');
 const app = express();
-console.log('🔍 Render PORT environment:', process.env.PORT);
+
+// Use the port Render provides (don't let dotenv override it)
+const PORT = process.env.PORT || 3000;
+
+// Load environment variables from .env *after* accessing PORT
+require('dotenv').config();
+
+console.log('🔍 Render PORT environment:', PORT);
 
 
 // PostgreSQL connection using the DATABASE_URL from your .env file
