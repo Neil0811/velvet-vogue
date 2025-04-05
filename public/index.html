@@ -3,29 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Velvet Vogue</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <title>Velvet Vogue - Home</title>
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">…</nav>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Velvet Vogue</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cart.html">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="account.html">Account</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-  <header class="hero text-center">
-    <div class="container">
-      <h1>Welcome to Velvet Vogue</h1>
-      <p>Your destination for trendy casual and formal wear</p>
+  <!-- Hero Section -->
+  <header class="hero d-flex align-items-center justify-content-center text-center">
+    <div class="overlay"></div>
+    <div class="container text-white">
+      <h1 class="display-4">Welcome to Velvet Vogue</h1>
+      <p class="lead">
+        Discover your style with our curated collection of casual & formal wear
+      </p>
+      <a href="products.html" class="btn btn-primary btn-lg mt-3">Shop Now</a>
     </div>
   </header>
 
+  <!-- Featured Products -->
   <section class="featured-products container my-5">
-    <h2>Featured Products</h2>
+    <h2 class="text-center mb-4">Featured Products</h2>
     <div class="row" id="featured-row">
-      <!-- injected by JS -->
+      <!-- injected by js/scripts.js -->
     </div>
   </section>
 
-  <footer class="bg-light text-center py-3">…</footer>
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3">
+    <p>&copy; 2025 Velvet Vogue. All Rights Reserved.</p>
+  </footer>
 
+  <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <script src="js/scripts.js"></script>

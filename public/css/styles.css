@@ -1,14 +1,21 @@
-/* styles.css */
+/* Base */
 body {
     font-family: Arial, sans-serif;
   }
+  
+  /* Hero */
   .hero {
+    position: relative;
     background: url('../assets/images/product1.jpg') center/cover no-repeat;
-    color: white;
-    padding: 100px 0;
+    height: 60vh;
   }
-  .hero h1 {
-    font-size: 3rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  .hero .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .hero .container {
+    position: relative;
+    z-index: 1;
   }
   
