@@ -1,32 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>…</head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Velvet Vogue – Account</title>
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
 <body>
-  <nav>…</nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Velvet Vogue</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+        <li class="nav-item active"><a class="nav-link" href="account.html">Account</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <section class="container my-5">
-    <h2>Contact / Account Inquiry</h2>
-    <form id="inquiryForm">
-      <div class="form-group">
-        <label>Name</label>
-        <input class="form-control" required>
+    <!-- Welcome / Logout -->
+    <div id="accountMessage" class="mb-4 text-right"></div>
+
+    <div class="card">
+      <div class="card-body">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="accountTab" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="login-tab"
+              data-toggle="tab"
+              href="#login"
+              role="tab"
+            >Login</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="signup-tab"
+              data-toggle="tab"
+              href="#signup"
+              role="tab"
+            >Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="inquiry-tab"
+              data-toggle="tab"
+              href="#inquiry"
+              role="tab"
+            >Contact</a>
+          </li>
+        </ul>
+
+        <!-- Tab Panes -->
+        <div class="tab-content pt-4" id="accountTabContent">
+          <!-- LOGIN -->
+          <div
+            class="tab-pane fade show active"
+            id="login"
+            role="tabpanel"
+            aria-labelledby="login-tab"
+          >
+            <form id="loginForm">
+              <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input
+                  type="email"
+                  id="loginEmail"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+          </div>
+
+          <!-- SIGN UP -->
+          <div
+            class="tab-pane fade"
+            id="signup"
+            role="tabpanel"
+            aria-labelledby="signup-tab"
+          >
+            <form id="signupForm">
+              <div class="form-group">
+                <label for="signupName">Name</label>
+                <input
+                  type="text"
+                  id="signupName"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input
+                  type="email"
+                  id="signupEmail"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input
+                  type="password"
+                  id="signupPassword"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-success">Sign Up</button>
+            </form>
+          </div>
+
+          <!-- CONTACT/INQUIRY -->
+          <div
+            class="tab-pane fade"
+            id="inquiry"
+            role="tabpanel"
+            aria-labelledby="inquiry-tab"
+          >
+            <form id="inquiryForm">
+              <div class="form-group">
+                <label for="inquiryName">Name</label>
+                <input
+                  type="text"
+                  id="inquiryName"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="inquiryEmail">Email</label>
+                <input
+                  type="email"
+                  id="inquiryEmail"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="inquiryMessage">Message</label>
+                <textarea
+                  id="inquiryMessage"
+                  class="form-control"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-secondary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea class="form-control" rows="4" required></textarea>
-      </div>
-      <button class="btn btn-primary">Submit</button>
-    </form>
+    </div>
   </section>
-  <footer>…</footer>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3">
+    <p>&copy; 2025 Velvet Vogue. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.getElementById("inquiryForm").addEventListener("submit", e => {
+    // Utility for localStorage users
+    function getUsers() {
+      return JSON.parse(localStorage.getItem("users")) || [];
+    }
+    function saveUsers(u) {
+      localStorage.setItem("users", JSON.stringify(u));
+    }
+    function getCurrent() {
+      return JSON.parse(localStorage.getItem("currentUser"));
+    }
+    function setCurrent(u) {
+      localStorage.setItem("currentUser", JSON.stringify(u));
+    }
+    function clearCurrent() {
+      localStorage.removeItem("currentUser");
+    }
+
+    // Show welcome or hide login/signup if already logged in
+    function updateUI() {
+      const cur = getCurrent();
+      const msg = document.getElementById("accountMessage");
+      const loginTab = document.getElementById("login-tab");
+      const signupTab = document.getElementById("signup-tab");
+      if (cur) {
+        msg.innerHTML = `
+          Welcome, <strong>${cur.name}</strong>!
+          <button id="logoutBtn" class="btn btn-sm btn-outline-danger ml-2">Logout</button>
+        `;
+        loginTab.parentElement.style.display = "none";
+        signupTab.parentElement.style.display = "none";
+        document.getElementById("login").classList.remove("show","active");
+        document.getElementById("signup").classList.remove("show","active");
+        document.getElementById("inquiry-tab").click();
+        document.getElementById("logoutBtn").addEventListener("click", () => {
+          clearCurrent();
+          updateUI();
+        });
+      } else {
+        msg.innerHTML = "";
+        loginTab.parentElement.style.display = "";
+        signupTab.parentElement.style.display = "";
+      }
+    }
+
+    // Sign Up
+    document.getElementById("signupForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("signupName").value.trim();
+      const email = document.getElementById("signupEmail").value.trim();
+      const pw = document.getElementById("signupPassword").value;
+      const users = getUsers();
+      if (users.find((u) => u.email === email)) {
+        return alert("Email already registered.");
+      }
+      const newUser = { name, email, password: pw };
+      users.push(newUser);
+      saveUsers(users);
+      setCurrent(newUser);
+      alert("Signed up and logged in!");
+      updateUI();
+    });
+
+    // Login
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value.trim();
+      const pw = document.getElementById("loginPassword").value;
+      const user = getUsers().find((u) => u.email === email && u.password === pw);
+      if (!user) return alert("Invalid email or password.");
+      setCurrent(user);
+      alert("Logged in successfully!");
+      updateUI();
+    });
+
+    // Inquiry
+    document.getElementById("inquiryForm").addEventListener("submit", (e) => {
       e.preventDefault();
       alert("Thanks for your inquiry! We’ll be in touch soon.");
+      document.getElementById("inquiryForm").reset();
     });
+
+    // Init
+    document.addEventListener("DOMContentLoaded", updateUI);
   </script>
 </body>
 </html>

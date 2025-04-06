@@ -1,21 +1,62 @@
-/* Base */
+/* Base styles */
 body {
     font-family: Arial, sans-serif;
   }
   
-  /* Hero */
-  .hero {
-    position: relative;
-    background: url('../assets/images/product1.jpg') center/cover no-repeat;
-    height: 60vh;
+  /* Product card styling */
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
   }
-  .hero .overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
-  .hero .container {
-    position: relative;
-    z-index: 1;
+  
+  /* Product images */
+  .product-image {
+    width: 100%;
+    height: 250px;      /* reduced from 300px */
+    object-fit: cover;  /* crop/center nicely */
   }
+  
+  /* Card body */
+  .card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  .card-price {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Buttons */
+  .btn {
+    margin-top: auto;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* NO MORE manual .col-md-6 overrides — Bootstrap’s grid will handle:
+       • col-12 = full width on xs (<576px)
+       • col-sm-6 = half width on sm+ (≥576px)
+     so you get exactly 2 cards per row on tablets/desktops */
   
