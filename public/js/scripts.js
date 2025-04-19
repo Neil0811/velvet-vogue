@@ -223,6 +223,88 @@ const products = [
     const el = document.getElementById("cart-total");
     if (el) el.textContent = total.toFixed(2);
   }
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("Velvet Vogue website loaded.");
+  
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("Velvet Vogue website loaded.");
+      
+        // LOGIN
+        const loginForm = document.getElementById("loginForm");
+        if (loginForm) {
+          loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+      
+            const res = await fetch("/api/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, password })
+            });
+      
+            const data = await res.json();
+            if (data.success) {
+              alert(`Welcome, ${data.name}!`);
+            } else {
+              alert(data.message || "Login failed.");
+            }
+          });
+        }
+      
+        // SIGN UP
+        const signupForm = document.getElementById("signupForm");
+        if (signupForm) {
+          signupForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = document.getElementById("signupName").value;
+            const email = document.getElementById("signupEmail").value;
+            const password = document.getElementById("signupPassword").value;
+      
+            const res = await fetch("/api/signup", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ name, email, password })
+            });
+      
+            const data = await res.json();
+            if (data.success) {
+              alert("Account created! Please log in.");
+              signupForm.reset();
+              document.querySelector("#login-tab").click();
+            } else {
+              alert(data.message || "Sign up failed.");
+            }
+          });
+        }
+      
+        // INQUIRY
+        const inquiryForm = document.getElementById("inquiryForm");
+        if (inquiryForm) {
+          inquiryForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = document.getElementById("inquiryName").value;
+            const email = document.getElementById("inquiryEmail").value;
+            const message = document.getElementById("inquiryMessage").value;
+      
+            const res = await fetch("/send-inquiry", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ name, email, message })
+            });
+      
+            const data = await res.json();
+            if (data.success) {
+              alert("Message sent successfully!");
+              inquiryForm.reset();
+            } else {
+              alert("Failed to send message.");
+            }
+          });
+        }
+      });
+      
+  });
   
   // 8) Initialize on DOM ready
   document.addEventListener("DOMContentLoaded", () => {
